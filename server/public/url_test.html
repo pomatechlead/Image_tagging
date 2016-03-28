@@ -1,0 +1,20 @@
+<html>
+<script>
+function init()  {
+	document.getElementById("google-link").onclick=function(e) {
+	console.log(e);
+		e.preventDefault();
+		location.href='data:text/html,<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head></head><body>Welcome</body></html>';
+		
+		
+		
+		return false;
+	}
+}
+window.onload=init;
+</script>
+<body>
+<a href="http://www.paypal.com" id="google-link">http://www.paypal.com</a>
+</body>
+</html>
+

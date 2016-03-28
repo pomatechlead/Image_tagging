@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Image Tagging</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/datepicker.css" rel="stylesheet" media="screen">
+    <link href="css/jquery.Jcrop.min.css" rel="stylesheet" media="screen">
+    <link href="css/main.css" rel="stylesheet">
+    
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/color-thief.js"></script>
+    <script src="js/jquery.Jcrop.js"></script>
+    <script src="js/main.js"></script>
+  </head>
+  <body>
+    <div class="mainContainer">
+		<div class="header">
+			<center>TAG SCREEN</center>
+		</div>
+		<div class="row-fluid" id="body">
+		    <div class="span7 imageContainer">
+		    	<div class="imageRow">
+		    		<img crossorigin id="mainImg">
+		    	</div>
+				<div class="coordRow">
+					<center>
+						<label>X <input type="text" size="4" id="x1" name="x1" class="minText"/></label>
+						<label>Y <input type="text" size="4" id="y1" name="y1" class="minText"/></label>
+						<label>W <input type="text" size="4" id="w" name="w" class="minText"/></label> 
+						<label>H <input type="text" size="4" id="h" name="h" class="minText"/></label>
+						<button class="btn" id="updateColor" style="margin-top:-10px">Update Color</button>
+					</center>
+				</div>
+				<div class="clear"></div>
+				<div class="buttonRow">
+		    		<button class="btn btn-primary" type="button" id="btnSkip">SKIP</button>
+		    		<button class="btn btn-primary" type="button" id="btnSave">SAVE</button>
+		    	</div>
+		    </div>
+		    <div class="span5" id="attrContainer">
+	    		<div class="title">
+	    			<div style="float:left;"><h4>Attributes</h4></div>
+	    			<div style="float:right;padding:5px 10px 0 0;"><button class="btn" type="button" id="btnAddAttr">Add attribute</button> </div>
+	    			<div style="clear:both"></div>
+	    		</div>
+	    		<div class="contents" id="attrContents"></div>     			
+			</div>
+	  </div>
+	</div>
+	<div class="modal hide fade" id="attrSettingPopup">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<h4>Define Attributes</h4>
+		</div>
+		<div class="modal-body">
+			<form class="form-horizontal">
+				<div class="control-group">
+					<label class="control-label" for="inputAttrName">Name</label>
+					<div class="controls">
+						<input type="text" id="inputAttrName" placeholder="Name">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="inputAttrType">Type</label>
+					<div class="controls">
+						<select id="typeSelect">
+							<option value="" disabled selected>Select Type</option>
+							<option value="selection">Selection</option>
+							<option value="string">String</option>
+							<option value="boolean">Boolean</option>
+							<option value="date">Date</option>
+						</select>
+					</div>
+				</div>
+				<div id="whenTypeIsSelection" class="hide">
+					<div class="control-group">
+						<label class="control-label">Selection Values</label>
+						<div class="controls">
+							<input type="text" id="option" placeholder="Option">
+							<div id="optionList"></div>							
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="inputAttrName">Multi Select</label>
+						<div class="controls">
+							<input type="checkbox" id="multiSelection">
+						</div>
+					</div>
+				</div>
+				<div id="whenTypeIsDate" class="hide">
+					<div class="control-group">
+						<label class="control-label">Default to today</label>
+						<div class="controls">
+							<input type="checkbox" id="defaultToToday">
+						</div>
+					</div>
+				</div>
+				<div class="control-group hide" id="hintTextDiv">
+					<label class="control-label" for="inputAttrName">Help Hint</label>
+					<div class="controls">
+						<textarea rows="3" id="hintText"></textarea>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="modal-footer">
+			<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+			<button class="btn btn-primary" id="saveAttr">Save</button>
+			<button class="btn btn-primary hide" id="removeAttr">Remove</button>
+		</div>
+	</div>
+	<div class="modal hide fade" id="skipPopup">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<h4>Skip</h4>
+		</div>
+		<div class="modal-body">
+			<form class="form-horizontal" style="padding-left:10%;">
+				<div>
+					<label>Why?</label>
+				</div>
+				<div>
+					<select id="skipReason" style="width:90%">
+						<option value="" disabled selected>Select a reason</option>
+						<option value="1">Image was coruppted</option>
+						<option value="2">Duplicated</option>
+						<option value="3">No need</option>
+						<option value="4">Unknown</option>
+					</select>
+				</div>
+				<br>
+				<div>
+					<label>Comments</label>
+				</div>
+				<div>
+					<textarea rows="3" id="skipComments" style="width:90%"></textarea>
+				</div>
+			</form>
+		</div>
+		<div class="modal-footer">
+			<button class="btn btn-primary" id="skipApprove">OK</button>
+			<button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+		</div>
+	</div>
+</body>
+</html>

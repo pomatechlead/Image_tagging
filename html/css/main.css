@@ -1,0 +1,105 @@
+body {
+	height:100%;
+	margin:0 0 0 0px;
+	padding:0 0 0 0px;
+	overflow:auto;
+	color:#777;
+	font-family: sans-serif;
+	background: #eee;
+}
+
+.mainContainer {
+/* 	border-left:1px solid #c0c0c0;
+	border-right:1px solid #c0c0c0;
+ */	height:100%;	
+	width:968px;
+	margin:0 auto;
+	padding:0px;
+	background:#fff;
+	border: 1px solid #c0c0c0;
+	border-top:0px;
+	border-bottom:0px;
+}
+
+.header {
+	background: #333;
+	margin: 0 0 0 0px;
+	padding: 20px 0 20px 0px;
+	font-size:24px;
+	font-weight: bold;
+	color: #f0f0f0;
+}
+
+.imageContainer {
+	border-right: 1px solid #c0c0c0;
+	padding:20px 20px 10px 20px;
+	height:600px;
+}
+
+.imageRow {
+	
+}
+.coordRow {
+	padding-top:10px;
+}
+
+.coordRow label {
+	display: inline;
+	margin-right: 10px;
+}
+
+.clear {
+	clear:both;
+}
+
+.minText {
+	width:50px;
+}
+.buttonRow {
+	margin : 0px 0px 0px 10px;
+	float:right;
+}
+
+#btnSkip {
+	margin-right: 10px;
+}
+
+#btnSave {
+	
+}
+
+#attrContainer {
+	height:600px;
+	padding-bottom:10px;
+	padding-right:10px;
+	padding-top:10px;
+	position:relative;
+	overflow:auto;
+}
+
+.attrRow {
+	border-top:1px solid #c0c0c0;
+	padding-top:10px;
+}
+.attrRow span {
+	min-width:100px;
+	text-align: right;
+	display:inline-block;
+}
+#attrSettingPopup {
+	
+}
+
+input#option {
+	margin-bottom:5px;
+	margin-right:4px;
+}
+
+@media (max-width: 968px) {
+	.mainContainer {
+	height:100%;	
+	width:100%;
+	margin:0 auto;
+	background:#f7f7f7:
+}
+}
